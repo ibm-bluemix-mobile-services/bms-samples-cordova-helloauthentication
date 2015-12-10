@@ -1,4 +1,4 @@
-# HelloWorld Cordova application for IBM MobileFirst Services on IBM Bluemix
+# HelloAuthentication Cordova application for IBM MobileFirst Services on IBM Bluemix
 
 The HelloWorld sample contains a Cordova project that you can use to learn.
 
@@ -12,18 +12,17 @@ The HelloWorld sample contains a Cordova project that you can use to learn.
 
 Clone the samples with the following command:
 	
-	git clone https://github.com/ibm-bluemix-mobile-services/bms-samples-cordova-helloworld
-	
-### Add the native platforms to your app
-
-	cordova platform add ios
-	cordova platform add android
+	git clone https://github.com/ibm-bluemix-mobile-services/bms-samples-cordova-helloauthentication
 	
 ### Configure Cordova
 
-Follow the README instructions for "Installation" and "Configuration" here to add the cordova plugin and configure your development environment: <https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-cordova-plugin-core/#installation>
+Follow the README instructions for "Installation" and "Configuration" here to add the cordova platforms and plugins, and configure your development environment: <https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-cordova-plugin-core/#installation>
 
 ***Note: Project will not build until you follow instructions from this step***
+
+For this sample you will need the **ibm-mfp-core** plugin.
+
+	cordova plugin add ibm-mfp-core
   
 ### Configure the front end in the HelloWorld sample
 
