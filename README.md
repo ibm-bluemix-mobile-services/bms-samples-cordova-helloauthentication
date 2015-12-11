@@ -33,7 +33,7 @@ Configure the Mobile Client Access service:
 
 ### Setting up Facebook authentication
 
-For iOS, follow the instructions here to configure your Xcode project:
+For iOS, follow the instructions here to configure your Xcode project for Facebook authentication:
 
 <https://developers.facebook.com/docs/ios/getting-started#xcode>
 	
