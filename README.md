@@ -45,9 +45,11 @@ For this sample you will need the **ibm-mfp-core** plugin.
 	
 ### Setting up Facebook authentication
 
-For iOS, follow the instructions here to configure your Xcode project for Facebook authentication:
+For iOS, follow the instructions here to configure your '''.plist''' of Xcode project for Facebook authentication:
 
 <https://developers.facebook.com/docs/ios/getting-started#xcode>
+
+Make sure you use the correct AppID for your Facebook app.
 
 ### Configure the front end in the HelloAuthentication sample
 
@@ -69,13 +71,13 @@ Now you can run your application in your mobile emulator or on your device.
 
 1. Build the Cordova app. From your terminal enter the following command:
 
-	cordova build ios
-	cordova build android
+		cordova build ios
+		cordova build android
 
 2. Run the sample app. From your terminal enter the following command:
 
-	cordova run ios
-	cordova run android		
+		cordova run ios
+		cordova run android		
 
 When you run the application, you will see a single view application with a **PING BLUEMIX** button. When you click this button the application tests a connection from the client to a protected resource in the backend Bluemix application. Because this is a protected resource, the authentication process will begin. Login to the authentication service (Facebook in this example).  The application will then display if the connection was successful or unsuccessful. In the unsuccessful state, an error is displayed in the application and the output to the Xcode console.
 
