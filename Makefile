@@ -40,15 +40,3 @@ run_droid:
 	cordova run android
 run_ios:
 	cordova run ios
-test_droid:
-	mv config.xml bak_config.xml
-	sed 's/content src="index.html"/content src="cdvtests\/index.html"/g' bak_config.xml >> config.xml
-	cordova run android
-	rm config.xml
-	mv bak_config.xml config.xml
-test_ios:
-	mv config.xml bak_config.xml
-	sed 's/content src="index.html"/content src="cdvtests\/index.html"/g' bak_config.xml >> config.xml
-	cordova run ios
-	rm config.xml
-	mv bak_config.xml config.xml
