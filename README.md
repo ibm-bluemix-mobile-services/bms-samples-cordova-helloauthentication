@@ -30,23 +30,25 @@ Configure the Mobile Client Access service:
 3.  Enter the required configuration settings (APP ID for Facebook authentication).
 
 **Note:** If you have not previously created a Facebook mobile application, follow the instructions on how to [Register and Configure an App](https://developers.facebook.com/docs/apps/register#create-app).
-
-### Setting up Facebook authentication
-
-For iOS, follow the instructions here to configure your Xcode project for Facebook authentication:
-
-<https://developers.facebook.com/docs/ios/getting-started#xcode>
 	
 ### Configure Cordova
 
-Follow the README instructions for "Installation" and "Configuration" here to add the cordova platforms and plugins, and configure your development environment: <https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-cordova-plugin-core/#installation>
+Follow the README instructions for "Installation" and "Configuration" here to add the cordova platforms and plugins, and configure your development environment:
+
+<https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-cordova-plugin-core/#installation>
 
 ***Note: Project will not build until you follow instructions from this step***
 
 For this sample you will need the **ibm-mfp-core** plugin.
 
 	cordova plugin add ibm-mfp-core
-  
+	
+### Setting up Facebook authentication
+
+For iOS, follow the instructions here to configure your Xcode project for Facebook authentication:
+
+<https://developers.facebook.com/docs/ios/getting-started#xcode>
+
 ### Configure the front end in the HelloAuthentication sample
 
 1. Navigate to the directory where the project was cloned.
