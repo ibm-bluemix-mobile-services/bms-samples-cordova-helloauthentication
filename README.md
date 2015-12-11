@@ -45,9 +45,9 @@ For this sample you will need the **ibm-mfp-core** plugin.
 	
 ### Setting up Facebook authentication
 
-For iOS, follow the instructions here to configure your ```.plist``` of Xcode project for Facebook authentication:
+For iOS, follow the instructions here to configure Xcode project for Facebook authentication:
 
-<https://developers.facebook.com/docs/ios/getting-started#xcode>
+<https://developers.facebook.com/docs/ios/getting-started>
 
 Make sure you use the correct AppID for your Facebook app.
 
