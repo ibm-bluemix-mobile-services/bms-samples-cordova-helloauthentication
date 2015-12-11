@@ -32,15 +32,10 @@ Configure the Mobile Client Access service:
 **Note:** If you have not previously created a Facebook mobile application, follow the instructions on how to [Register and Configure an App](https://developers.facebook.com/docs/apps/register#create-app).
 
 ### Setting up Facebook authentication
-Update the `Info.plist` file with your Facebook App information:
 
-- **FacebookAppID** (For example `1581349575427190`): You can get the App ID from the Facebook developer console.
-- **FacebookDisplayName** (For example `helloAuth`): You can get App name from Facebook developer console.
+For iOS, follow the instructions here to configure your Xcode project:
 
-Update URL Types, Item 0, URL Schemes, update Item 0 as follows:
-
-- **URL Schemes**: (for example `fb1581349575427190` , fb+Client ID from Facebook developer console)
-[Learn more about using Facebook as an identity provider](https://www.ng.bluemix.net/docs/#docs/services/mobileaccess/security/facebook/index.html)
+<https://developers.facebook.com/docs/ios/getting-started#xcode>
 	
 ### Configure Cordova
 
@@ -52,7 +47,7 @@ For this sample you will need the **ibm-mfp-core** plugin.
 
 	cordova plugin add ibm-mfp-core
   
-### Configure the front end in the HelloWorld sample
+### Configure the front end in the HelloAuthentication sample
 
 1. Navigate to the directory where the project was cloned.
 2. Open <b>index.js</b> located at [your-directory]/www/js/index.js
