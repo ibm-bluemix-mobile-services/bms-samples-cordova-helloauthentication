@@ -31,7 +31,7 @@ Configure the Mobile Client Access service:
 
 **Note:** If you have not previously created a Facebook mobile application, follow the instructions on how to [Register and Configure an App](https://developers.facebook.com/docs/apps/register#create-app).
 	
-### Configure Cordova
+### Install and configure the Core Plugin
 
 Follow the README instructions for "Installation" and "Configuration" here to add the cordova platforms and plugins, and configure your development environment:
 
@@ -64,6 +64,66 @@ Javascript:
 	guid: "<APPLICATION_GUID>",	
 
 ***Note: Don't forget commas at the end of each line!***
+
+### Configure the Native Platforms
+
+In order to configure Cordova applications for Facebook authentication integration you will need to make changes in native code of the Cordova application, i.e. Java, Objective-C, Swift. Each platform needs to be configured separately. Use vendor provided development environment to make changes in native code, i.e. Android Studio and Xcode.
+
+Though not mandatory, it is recommended to get yourself familiar with two below tutorials before reading this one.
+
+* [Enabling Facebook authentication in Android apps](https://github.com/AntonAleksandrov/mcadocs/wiki/facebook-auth-android)
+* [Enabling Facebook authentication in iOS apps](https://github.com/AntonAleksandrov/mcadocs/wiki/facebook-auth-ios)
+
+ 
+#### Configuring Android Platform
+
+The steps required to configure Android Platform of Cordova application for Facebook authentication integration are very similar to the steps required for native applications. Please follow [[Enabling Facebook authentication in Android apps|facebook auth android]]. You will need to perform steps described in following sections of that tutorial
+
+* Configuring Facebook Application for Android Platform
+* Configuring Mobile Client Access for Facebook authentication
+* Configuring Mobile Client Access Client SDK for Android
+
+The only difference when configuring Cordova applications is that you'll need to initialize the Mobile Client Access Client SDK in your JavaScript code instead of Java code. `FacebookAuthenticationManager` should still be registered in your native code. 
+
+#### Configuring iOS Platform
+
+The steps required to configure iOS Platform of Cordova application for Facebook authentication integration are partially similar to the steps required for native applications. The major difference is that currently Cordova CLI does not support Cocoapods dependency manager, therefore you will need to add files required for integrating with Facebook authentication manually. Please follow [[Enabling Facebook authentication in iOS apps|facebook auth ios]]. You will need to perform steps described in following sections of that tutorial first
+
+* Configuring Facebook Application for iOS Platform
+* Configuring Mobile Client Access for Facebook authentication
+
+##### Manually installing the Mobile Client Access SDK for Facebook authentication and Facebook SDK
+
+1. Download the archive containing [Bluemix Mobile Services SDK for iOS](https://hub.jazz.net/git/bluemixmobilesdk/imf-ios-sdk/archive?revstr=master)
+
+1. Navigate to `Sources/Authenticators/IMFFacebookAuthentication` directory and copy (drag and drop) all of the files to your iOS project in Xcode
+
+	> The files you need to copy are:
+	
+	> * IMFDefaultFacebookAuthenticationDelegate.h
+	> * IMFDefaultFacebookAuthenticationDelegate.m
+	> * IMFFacebookAuthenticationDelegate.h
+	> * IMFFacebookAuthenticationHandler.h
+	> * IMFFacebookAuthenticationHandler.m
+	
+	> Check `Copy files....` checkbox when prompted by Xcode
+
+1. Download and install [Facebook SDK v3.19](https://developers.facebook.com/resources/facebook-ios-sdk-3.19.pkg) 
+
+1. The Facebook SDK will be installed into `~/Documents/FacebookSDK` directory. Navigate to that directory and copy (drag and drop) the `FacebookSDK.framework` to your iOS project in Xcode. 
+
+1. 	Click your project root in the left pane of Xcode and select `Build Phases`. 
+
+1. Add the `FacebookSDK.framework` to the list of linked libraries in `Link binary with library`.
+
+Continue to the `Configuring iOS project for Facebook Authentication` section of [[Configuring iOS Platform for Facebook authentication|facebook auth ios]]. Register the `IMFFacebookAuthenticationHandler` in native code as described in the `Initializing the Mobile Client Access Client SDK` section. You don't need to initialize `IMFClient` in your native code, this will be done in JavaScript code shortly.
+
+Add below line to the `application:openURL:sourceApplication:annotation` method of your application delegate. This will ensure that all Cordova plugins are notified of respective event.
+
+```
+[[ NSNotificationCenter defaultCenter] postNotification:
+		[NSNotification notificationWithName:CDVPluginHandleOpenURLNotification object:url]];      
+```
 
 ### Build/Run the Cordova App
 
