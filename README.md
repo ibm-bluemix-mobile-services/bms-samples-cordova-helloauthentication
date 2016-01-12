@@ -1,6 +1,6 @@
 # HelloAuthentication Cordova application for IBM MobileFirst Services on IBM Bluemix
 
-The HelloWorld sample contains a Cordova project that you can use to learn.
+The HelloAuthentication sample contains a Cordova project that you can use to learn and test Facebook Authentication.
 
 ### Create your mobile backend in Bluemix
 
