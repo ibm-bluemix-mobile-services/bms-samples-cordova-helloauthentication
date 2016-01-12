@@ -19,8 +19,8 @@
 
 var app =  {
     // Bluemix credentials
-    route: "https://HelloMatt.mybluemix.net",
-    guid: "36fe7be8-5eda-42c0-bf2c-19ced26a3278",
+    route: "<APPLICATION_ROUTE>",
+    guid: "<APPLICATION_GUID>",
 
     // Initialize BMSClient
     initialize: function() {
@@ -45,7 +45,7 @@ var app =  {
 
     // Ping Bluemix
     ping: function() {
-        var request = new MFPRequest(this.route + "/protected", MFPRequest.GET);
+        var request = new MFPRequest(app.route + "/protected", MFPRequest.GET);
 
         var header = document.getElementById("text-big");
         var connected = document.getElementById("text-connected");
