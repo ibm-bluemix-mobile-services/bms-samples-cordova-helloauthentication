@@ -55,8 +55,6 @@ Javascript:
 
 In order to configure Cordova applications for Facebook authentication integration you will need to make changes in native code of the Cordova application, i.e. Java, Objective-C, Swift. Each platform needs to be configured separately. Use vendor provided development environment to make changes in native code, i.e. Android Studio and Xcode.
 
-Though not mandatory, it is recommended to get yourself familiar with two below tutorials before reading this one.
-
 * [Enabling Facebook authentication in Android apps](https://github.com/AntonAleksandrov/mcadocs/wiki/facebook-auth-android)
 * [Enabling Facebook authentication in iOS apps](https://github.com/AntonAleksandrov/mcadocs/wiki/facebook-auth-ios)
 
@@ -64,10 +62,6 @@ Though not mandatory, it is recommended to get yourself familiar with two below 
 #### Configuring Android Platform
 
 The steps required to configure Android Platform of Cordova application for Facebook authentication integration are very similar to the steps required for native applications.
-
-* Configuring Facebook Application for Android Platform
-* Configuring Mobile Client Access for Facebook authentication
-* Configuring Mobile Client Access Client SDK for Android
 
 The only difference when configuring Cordova applications is that you'll need to initialize the Mobile Client Access Client SDK in your JavaScript code instead of Java code. `FacebookAuthenticationManager` should still be registered in your native code. 
 
