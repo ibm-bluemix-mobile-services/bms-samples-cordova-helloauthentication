@@ -29,7 +29,7 @@ Configure the Mobile Client Access service:
 
 Follow the README instructions for "Installation" and "Configuration" here to add the cordova platforms and plugins, and configure your development environment:
 
-<https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-cordova-plugin-core/#installation>
+<https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-cordova-plugin-core/#3-adding-cordova-plugin>
 
 ***Note: Project will not build until you follow instructions from this step***
 
