@@ -2,12 +2,6 @@
 
 The HelloAuthentication sample contains a Cordova project that you can use to learn and test Facebook Authentication.
 
-### Create your mobile backend in Bluemix
-
-1. In the Boilerplates section of the Bluemix catalog, click MobileFirst Services Starter.
-2. Enter a name and host for your app and click Create.
-3. Click Finish. 
-
 ### Downloading the sample
 
 Clone the samples with the following command:
@@ -19,15 +13,15 @@ Before you can run the helloAuthentication application, you must set up an app o
 
 Create a mobile backend in the Bluemix dashboard:
 
-1.	In the **Boilerplates** section of the Bluemix catalog, click **MobileFirst Services Starter**.
-2.	Enter a name and host for your mobile backend and click **Create**.
-3.	Click **Finish**.
+1. In the **Boilerplates** section of the Bluemix catalog, click **MobileFirst Services Starter**.
+2. Enter a name and host for your mobile backend and click **Create**.
+3. Click **Finish**.
 
 Configure the Mobile Client Access service:
 
-1.	In the Mobile Client Access dashboard, go to the **Authentication** tab to configure your authentication service.  
-2.  Choose your authentication type (this sample has been configured for Facebook authentication).
-3.  Enter the required configuration settings (APP ID for Facebook authentication).
+1. In the Mobile Client Access dashboard, go to the **Authentication** tab to configure your authentication service.  
+2. Choose your authentication type (this sample has been configured for Facebook authentication).
+3. Enter the required configuration settings (APP ID for Facebook authentication).
 
 **Note:** If you have not previously created a Facebook mobile application, follow the instructions on how to [Register and Configure an App](https://developers.facebook.com/docs/apps/register#create-app).
 	
