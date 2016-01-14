@@ -63,7 +63,7 @@ Though not mandatory, it is recommended to get yourself familiar with two below 
  
 #### Configuring Android Platform
 
-The steps required to configure Android Platform of Cordova application for Facebook authentication integration are very similar to the steps required for native applications. Please follow [[Enabling Facebook authentication in Android apps|facebook auth android]]. You will need to perform steps described in following sections of that tutorial
+The steps required to configure Android Platform of Cordova application for Facebook authentication integration are very similar to the steps required for native applications.
 
 * Configuring Facebook Application for Android Platform
 * Configuring Mobile Client Access for Facebook authentication
