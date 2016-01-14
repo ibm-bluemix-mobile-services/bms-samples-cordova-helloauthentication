@@ -93,7 +93,7 @@ The steps required to configure iOS Platform of Cordova application for Facebook
 
 1. Add the `FacebookSDK.framework` to the list of linked libraries in `Link binary with library`.
 
-Continue to the `Configuring iOS project for Facebook Authentication` section of [[Configuring iOS Platform for Facebook authentication|facebook auth ios]]. Register the `IMFFacebookAuthenticationHandler` in native code as described in the `Initializing the Mobile Client Access Client SDK` section. You don't need to initialize `IMFClient` in your native code, this will be done in JavaScript code shortly.
+Continue to the `Configuring iOS project for Facebook Authentication` section of [Configuring iOS Platform for Facebook authentication](https://github.com/AntonAleksandrov/mcadocs/wiki/facebook-auth-ios). Register the `IMFFacebookAuthenticationHandler` in native code as described in the `Initializing the Mobile Client Access Client SDK` section. You don't need to initialize `IMFClient` in your native code, this will be done in JavaScript code.
 
 Add below line to the `application:openURL:sourceApplication:annotation` method of your application delegate. This will ensure that all Cordova plugins are notified of respective event.
 
