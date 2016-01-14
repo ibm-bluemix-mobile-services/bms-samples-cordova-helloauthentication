@@ -73,10 +73,7 @@ The only difference when configuring Cordova applications is that you'll need to
 
 #### Configuring iOS Platform
 
-The steps required to configure iOS Platform of Cordova application for Facebook authentication integration are partially similar to the steps required for native applications. The major difference is that currently Cordova CLI does not support Cocoapods dependency manager, therefore you will need to add files required for integrating with Facebook authentication manually. Please follow [[Enabling Facebook authentication in iOS apps|facebook auth ios]]. You will need to perform steps described in following sections of that tutorial first
-
-* Configuring Facebook Application for iOS Platform
-* Configuring Mobile Client Access for Facebook authentication
+The steps required to configure iOS Platform of Cordova application for Facebook authentication integration are partially similar to the steps required for native applications. The major difference is that currently Cordova CLI does not support Cocoapods dependency manager, therefore you will need to add files required for integrating with Facebook authentication manually.
 
 ##### Manually installing the Mobile Client Access SDK for Facebook authentication and Facebook SDK
 
