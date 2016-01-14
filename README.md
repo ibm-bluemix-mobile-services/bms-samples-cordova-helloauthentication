@@ -36,14 +36,6 @@ Follow the README instructions for "Installation" and "Configuration" here to ad
 For this sample you will need the **ibm-mfp-core** plugin.
 
 	cordova plugin add ibm-mfp-core
-	
-### Setting up Facebook authentication
-
-For iOS, follow the instructions here to configure Xcode project for Facebook authentication:
-
-<https://developers.facebook.com/docs/ios/getting-started>
-
-Make sure you use the correct AppID for your Facebook app.
 
 ### Configure the front end in the HelloAuthentication sample
 
