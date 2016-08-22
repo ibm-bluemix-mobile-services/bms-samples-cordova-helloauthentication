@@ -44,6 +44,10 @@ var app =  {
     },
 
     // Ping Bluemix
+    //
+    // Sends a request to a protected resource of the Bluemix backend
+    // The success and failure variables handle the callback response for each case 
+    // Attempting to access a protected resource automatically kicks off the authentication process
     ping: function() {
         var request = new MFPRequest(app.route + "/protected", MFPRequest.GET);
 
@@ -56,7 +60,6 @@ var app =  {
             header.innerHTML = "Yay!";
             connected.innerHTML = "You are connected!";
             details.innerHTML = "<h4>Response:</h4><i>" + successResponse.responseText + "</i>";
-            //alert("Request success!\n\n" + JSON.stringify(successResponse));
         };
 
         var failure = function(failureResponse) {
@@ -64,7 +67,6 @@ var app =  {
             header.innerHTML = "Bummer";
             connected.innerHTML = "Something Went Wrong";
             details.innerHTML = "<h4>Response:</h4><i>" + failureResponse.errorDescription + "</i>";
-            //alert("Request failure!\n\n" + JSON.stringify(failureResponse));
         };
 
         request.send(success, failure);
