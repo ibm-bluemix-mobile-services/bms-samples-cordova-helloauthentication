@@ -2,12 +2,6 @@
 
 The HelloAuthentication sample contains a Cordova project that you can use to learn and test Facebook Authentication.
 
-### Create your mobile backend in Bluemix
-
-1. In the Boilerplates section of the Bluemix catalog, click MobileFirst Services Starter.
-2. Enter a name and host for your app and click Create.
-3. Click Finish. 
-
 ### Downloading the sample
 
 Clone the samples with the following command:
@@ -19,15 +13,15 @@ Before you can run the helloAuthentication application, you must set up an app o
 
 Create a mobile backend in the Bluemix dashboard:
 
-1.	In the **Boilerplates** section of the Bluemix catalog, click **MobileFirst Services Starter**.
-2.	Enter a name and host for your mobile backend and click **Create**.
-3.	Click **Finish**.
+1. In the **Boilerplates** section of the Bluemix catalog, click **MobileFirst Services Starter**.
+2. Enter a name and host for your mobile backend and click **Create**.
+3. Click **Finish**.
 
 Configure the Mobile Client Access service:
 
-1.	In the Mobile Client Access dashboard, go to the **Authentication** tab to configure your authentication service.  
-2.  Choose your authentication type (this sample has been configured for Facebook authentication).
-3.  Enter the required configuration settings (APP ID for Facebook authentication).
+1. In the Mobile Client Access dashboard, go to the **Authentication** tab to configure your authentication service.  
+2. Choose your authentication type (this sample has been configured for Facebook authentication).
+3. Enter the required configuration settings (APP ID for Facebook authentication).
 
 **Note:** If you have not previously created a Facebook mobile application, follow the instructions on how to [Register and Configure an App](https://developers.facebook.com/docs/apps/register#create-app).
 	
@@ -35,21 +29,13 @@ Configure the Mobile Client Access service:
 
 Follow the README instructions for "Installation" and "Configuration" here to add the Cordova platforms and plugins, and configure your development environment:
 
-<https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-cordova-plugin-core/#installation>
+<https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-cordova-plugin-core/#3-adding-cordova-plugin>
 
 ***Note: Project will not build until you follow instructions from this step***
 
 For this sample you will need the **ibm-mfp-core** plugin.
 
 	cordova plugin add ibm-mfp-core
-	
-### Setting up Facebook authentication
-
-For iOS, follow the instructions here to configure Xcode project for Facebook authentication:
-
-<https://developers.facebook.com/docs/ios/getting-started>
-
-Make sure you use the correct AppID for your Facebook app.
 
 ### Configure the front end in the HelloAuthentication sample
 
@@ -69,28 +55,19 @@ JavaScript:
 
 In order to configure Cordova applications for Facebook authentication integration you will need to make changes in native code of the Cordova application, i.e. Java, Objective-C, Swift. Each platform needs to be configured separately. Use vendor provided development environment to make changes in native code, i.e. Android Studio and Xcode.
 
-Though not mandatory, it is recommended to get yourself familiar with two below tutorials before reading this one.
-
 * [Enabling Facebook authentication in Android apps](https://new-console.ng.bluemix.net/docs/services/mobileaccess/facebook-auth-android.html)
 * [Enabling Facebook authentication in iOS apps](https://new-console.ng.bluemix.net/docs/services/mobileaccess/facebook-auth-ios.html)
 
  
 #### Configuring Android Platform
 
-The steps required to configure Android Platform of Cordova application for Facebook authentication integration are very similar to the steps required for native applications. Please follow [Enabling Facebook authentication in Android apps](https://new-console.ng.bluemix.net/docs/services/mobileaccess/facebook-auth-android.html). You will need to perform steps described in following sections of that tutorial
-
-* Configuring Facebook Application for Android Platform
-* Configuring Mobile Client Access for Facebook authentication
-* Configuring Mobile Client Access Client SDK for Android
+The steps required to configure Android Platform of Cordova application for Facebook authentication integration are very similar to the steps required for native applications.
 
 The only difference when configuring Cordova applications is that you'll need to initialize the Mobile Client Access Client SDK in your JavaScript code instead of Java code. `FacebookAuthenticationManager` should still be registered in your native code. 
 
 #### Configuring iOS Platform
 
-The steps required to configure iOS Platform of Cordova application for Facebook authentication integration are partially similar to the steps required for native applications. The major difference is that currently Cordova CLI does not support Cocoapods dependency manager, therefore you will need to add files required for integrating with Facebook authentication manually. Please follow [Enabling Facebook authentication in iOS apps](https://new-console.ng.bluemix.net/docs/services/mobileaccess/facebook-auth-ios.html). You will need to perform steps described in following sections of that tutorial first
-
-* Configuring Facebook Application for iOS Platform
-* Configuring Mobile Client Access for Facebook authentication
+The steps required to configure iOS Platform of Cordova application for Facebook authentication integration are partially similar to the steps required for native applications. The major difference is that currently Cordova CLI does not support Cocoapods dependency manager, therefore you will need to add files required for integrating with Facebook authentication manually.
 
 ##### Manually installing the Mobile Client Access SDK for Facebook authentication and Facebook SDK
 
@@ -116,7 +93,7 @@ The steps required to configure iOS Platform of Cordova application for Facebook
 
 1. Add the `FacebookSDK.framework` to the list of linked libraries in `Link binary with library`.
 
-Continue to the `Configuring iOS project for Facebook Authentication` section of [[Configuring iOS Platform for Facebook authentication|facebook auth ios]]. Register the `IMFFacebookAuthenticationHandler` in native code as described in the `Initializing the Mobile Client Access Client SDK` section. You don't need to initialize `IMFClient` in your native code, this will be done in JavaScript code shortly.
+Continue to the `Configuring iOS project for Facebook Authentication` section of [Configuring iOS Platform for Facebook authentication](https://new-console.ng.bluemix.net/docs/services/mobileaccess/facebook-auth-ios.html). Register the `IMFFacebookAuthenticationHandler` in native code as described in the `Initializing the Mobile Client Access Client SDK` section. You don't need to initialize `IMFClient` in your native code, this will be done in JavaScript code.
 
 Add below line to the `application:openURL:sourceApplication:annotation` method of your application delegate. This will ensure that all Cordova plugins are notified of respective event.
 
