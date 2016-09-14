@@ -5,9 +5,9 @@ The HelloAuthentication sample contains a Cordova project that you can use to le
 ### Downloading the sample
 
 Clone the samples with the following command:
-	
+
 	git clone https://github.com/ibm-bluemix-mobile-services/bms-samples-cordova-helloauthentication
-	
+
 ### Configure the mobile backend for your helloAuthentication application
 Before you can run the helloAuthentication application, you must set up an app on Bluemix.  The following procedure shows you how to create a MobileFirst Services Starter application. A Node.js runtime environment is created so that you can provide server-side functions, such as resource URIs and static files. The Cloudant® NoSQL DB, IBM Push Notifications, and Mobile Client Access services are then added to the app.
 
@@ -24,7 +24,7 @@ Configure the Mobile Client Access service:
 3. Enter the required configuration settings (APP ID for Facebook authentication).
 
 **Note:** If you have not previously created a Facebook mobile application, follow the instructions on how to [Register and Configure an App](https://developers.facebook.com/docs/apps/register#create-app).
-	
+
 ### Install and configure the Core Plugin
 
 Follow the README instructions for "Installation" and "Configuration" here to add the Cordova platforms and plugins, and configure your development environment:
@@ -44,10 +44,10 @@ For this sample you will need the **ibm-mfp-core** plugin.
 3. Replace the \<APPLICATION_ROUTE\> and \<APPLICATION_GUID\> with your Bluemix application ID and route.
 
 JavaScript:
-	
+
 	// Bluemix credentials
 	route: "<APPLICATION_ROUTE>",
-	guid: "<APPLICATION_GUID>",	
+	guid: "<APPLICATION_GUID>",
 
 ***Note: Don't forget commas at the end of each line!***
 
@@ -58,12 +58,12 @@ In order to configure Cordova applications for Facebook authentication integrati
 * [Enabling Facebook authentication in Android apps](https://new-console.ng.bluemix.net/docs/services/mobileaccess/facebook-auth-android.html)
 * [Enabling Facebook authentication in iOS apps](https://new-console.ng.bluemix.net/docs/services/mobileaccess/facebook-auth-ios.html)
 
- 
+
 #### Configuring Android Platform
 
 The steps required to configure Android Platform of Cordova application for Facebook authentication integration are very similar to the steps required for native applications.
 
-The only difference when configuring Cordova applications is that you'll need to initialize the Mobile Client Access Client SDK in your JavaScript code instead of Java code. `FacebookAuthenticationManager` should still be registered in your native code. 
+The only difference when configuring Cordova applications is that you'll need to initialize the Mobile Client Access Client SDK in your JavaScript code instead of Java code. `FacebookAuthenticationManager` should still be registered in your native code.
 
 #### Configuring iOS Platform
 
@@ -76,20 +76,20 @@ The steps required to configure iOS Platform of Cordova application for Facebook
 1. Navigate to `Sources/Authenticators/IMFFacebookAuthentication` directory and copy (drag and drop) all of the files to your iOS project in Xcode
 
 	> The files you need to copy are:
-	
+
 	> * IMFDefaultFacebookAuthenticationDelegate.h
 	> * IMFDefaultFacebookAuthenticationDelegate.m
 	> * IMFFacebookAuthenticationDelegate.h
 	> * IMFFacebookAuthenticationHandler.h
 	> * IMFFacebookAuthenticationHandler.m
-	
+
 	> Check `Copy files....` checkbox when prompted by Xcode
 
-1. Download and install [Facebook SDK v3.19](https://developers.facebook.com/resources/facebook-ios-sdk-3.19.pkg) 
+1. Download and install [Facebook SDK v3.19](https://developers.facebook.com/resources/facebook-ios-sdk-3.19.pkg)
 
-1. The Facebook SDK will be installed into `~/Documents/FacebookSDK` directory. Navigate to that directory and copy (drag and drop) the `FacebookSDK.framework` to your iOS project in Xcode. 
+1. The Facebook SDK will be installed into `~/Documents/FacebookSDK` directory. Navigate to that directory and copy (drag and drop) the `FacebookSDK.framework` to your iOS project in Xcode.
 
-1. 	Click your project root in the left pane of Xcode and select `Build Phases`. 
+1. 	Click your project root in the left pane of Xcode and select `Build Phases`.
 
 1. Add the `FacebookSDK.framework` to the list of linked libraries in `Link binary with library`.
 
