@@ -33,7 +33,7 @@ Configure the Mobile Client Access service:
 	
 ### Install and configure the Core Plugin
 
-Follow the README instructions for "Installation" and "Configuration" here to add the cordova platforms and plugins, and configure your development environment:
+Follow the README instructions for "Installation" and "Configuration" here to add the Cordova platforms and plugins, and configure your development environment:
 
 <https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-cordova-plugin-core/#installation>
 
@@ -57,7 +57,7 @@ Make sure you use the correct AppID for your Facebook app.
 2. Open <b>index.js</b> located at [your-directory]/www/js/index.js
 3. Replace the \<APPLICATION_ROUTE\> and \<APPLICATION_GUID\> with your Bluemix application ID and route.
 
-Javascript:
+JavaScript:
 	
 	// Bluemix credentials
 	route: "<APPLICATION_ROUTE>",
@@ -71,13 +71,13 @@ In order to configure Cordova applications for Facebook authentication integrati
 
 Though not mandatory, it is recommended to get yourself familiar with two below tutorials before reading this one.
 
-* [Enabling Facebook authentication in Android apps](https://github.com/AntonAleksandrov/mcadocs/wiki/facebook-auth-android)
-* [Enabling Facebook authentication in iOS apps](https://github.com/AntonAleksandrov/mcadocs/wiki/facebook-auth-ios)
+* [Enabling Facebook authentication in Android apps](https://new-console.ng.bluemix.net/docs/services/mobileaccess/facebook-auth-android.html)
+* [Enabling Facebook authentication in iOS apps](https://new-console.ng.bluemix.net/docs/services/mobileaccess/facebook-auth-ios.html)
 
  
 #### Configuring Android Platform
 
-The steps required to configure Android Platform of Cordova application for Facebook authentication integration are very similar to the steps required for native applications. Please follow [[Enabling Facebook authentication in Android apps|facebook auth android]]. You will need to perform steps described in following sections of that tutorial
+The steps required to configure Android Platform of Cordova application for Facebook authentication integration are very similar to the steps required for native applications. Please follow [Enabling Facebook authentication in Android apps](https://new-console.ng.bluemix.net/docs/services/mobileaccess/facebook-auth-android.html). You will need to perform steps described in following sections of that tutorial
 
 * Configuring Facebook Application for Android Platform
 * Configuring Mobile Client Access for Facebook authentication
@@ -87,7 +87,7 @@ The only difference when configuring Cordova applications is that you'll need to
 
 #### Configuring iOS Platform
 
-The steps required to configure iOS Platform of Cordova application for Facebook authentication integration are partially similar to the steps required for native applications. The major difference is that currently Cordova CLI does not support Cocoapods dependency manager, therefore you will need to add files required for integrating with Facebook authentication manually. Please follow [[Enabling Facebook authentication in iOS apps|facebook auth ios]]. You will need to perform steps described in following sections of that tutorial first
+The steps required to configure iOS Platform of Cordova application for Facebook authentication integration are partially similar to the steps required for native applications. The major difference is that currently Cordova CLI does not support Cocoapods dependency manager, therefore you will need to add files required for integrating with Facebook authentication manually. Please follow [Enabling Facebook authentication in iOS apps](https://new-console.ng.bluemix.net/docs/services/mobileaccess/facebook-auth-ios.html). You will need to perform steps described in following sections of that tutorial first
 
 * Configuring Facebook Application for iOS Platform
 * Configuring Mobile Client Access for Facebook authentication
