@@ -49,7 +49,7 @@ var app =  {
     // The success and failure variables handle the callback response for each case 
     // Attempting to access a protected resource automatically kicks off the authentication process
     ping: function() {
-        var request = new MFPRequest(app.route + "/protected", MFPRequest.GET);
+        var request = new BMSRequest(app.route + "/protected", BMSRequest.GET);
 
         var header = document.getElementById("text-big");
         var connected = document.getElementById("text-connected");
