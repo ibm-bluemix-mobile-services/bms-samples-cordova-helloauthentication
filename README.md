@@ -33,9 +33,9 @@ Follow the README instructions for "Installation" and "Configuration" here to ad
 
 ***Note: Project will not build until you follow instructions from this step***
 
-For this sample you will need the **ibm-mfp-core** plugin.
+For this sample you will need the **bms-core** plugin.
 
-	cordova plugin add ibm-mfp-core
+	cordova plugin add bms-core
 
 ### Configure the front end in the HelloAuthentication sample
 
@@ -93,7 +93,7 @@ The steps required to configure iOS Platform of Cordova application for Facebook
 
 1. Add the `FacebookSDK.framework` to the list of linked libraries in `Link binary with library`.
 
-Continue to the `Configuring iOS project for Facebook Authentication` section of [Configuring iOS Platform for Facebook authentication](https://new-console.ng.bluemix.net/docs/services/mobileaccess/facebook-auth-ios.html). Register the `IMFFacebookAuthenticationHandler` in native code as described in the `Initializing the Mobile Client Access Client SDK` section. You don't need to initialize `IMFClient` in your native code, this will be done in JavaScript code.
+Continue to the `Configuring iOS project for Facebook Authentication` section of [Configuring iOS Platform for Facebook authentication](https://new-console.ng.bluemix.net/docs/services/mobileaccess/facebook-auth-ios.html). Register the `IMFFacebookAuthenticationHandler` in native code as described in the `Initializing the Mobile Client Access Client SDK` section. You don't need to initialize `BMSClient` in your native code, this will be done in JavaScript code.
 
 Add below line to the `application:openURL:sourceApplication:annotation` method of your application delegate. This will ensure that all Cordova plugins are notified of respective event.
 
