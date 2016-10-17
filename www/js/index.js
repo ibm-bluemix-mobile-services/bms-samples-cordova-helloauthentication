@@ -37,10 +37,15 @@ var app =  {
 
     // deviceready Event Handler
     //
-    // The scope of 'this' is the event. In order to use the 'route' and 'guid'
-    // variables, we must explicitly call 'app.route' and 'app.guid'
+    // The scope of 'this' is the event. In order to initialize you must 
+    // specify the region. The following constants are provided:
+    //
+    // BMSClient.REGION_US_SOUTH = ".ng.bluemix.net";
+    // BMSClilent.REGION_UK = ".eu-gb.bluemix.net";
+    // BMSClient.REGION_SYDNEY = ".au-syd.bluemix.net";
+
     onDeviceReady: function() {
-        BMSClient.initialize(app.route, app.guid);
+        BMSClient.initialize(BMSClient.REGION_US_SOUTH);
     },
 
     // Ping Bluemix
@@ -49,7 +54,7 @@ var app =  {
     // The success and failure variables handle the callback response for each case 
     // Attempting to access a protected resource automatically kicks off the authentication process
     ping: function() {
-        var request = new MFPRequest(app.route + "/protected", MFPRequest.GET);
+        var request = new BMSRequest(app.route + "/protected", BMSRequest.GET);
 
         var header = document.getElementById("text-big");
         var connected = document.getElementById("text-connected");
