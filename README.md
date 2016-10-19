@@ -1,15 +1,16 @@
-# HelloAuthentication Cordova application for IBM MobileFirst Services on IBM Bluemix
+# HelloAuthentication Cordova application for Bluemix Mobile services
 
 The HelloAuthentication sample contains a Cordova project that you can use to learn and test Facebook Authentication.
 
 ### Downloading the sample
 
-Clone the samples with the following command:
+Clone the sample with the following command:
 
 	git clone https://github.com/ibm-bluemix-mobile-services/bms-samples-cordova-helloauthentication
 
-### Configure the mobile backend for your helloAuthentication application
-Before you can run the helloAuthentication application, you must set up an app on Bluemix.  The following procedure shows you how to create a MobileFirst Services Starter application. A Node.js runtime environment is created so that you can provide server-side functions, such as resource URIs and static files. The Cloudant® NoSQL DB, IBM Push Notifications, and Mobile Client Access services are then added to the app.
+### Configure the mobile backend for your HelloAuthentication application
+
+Before you can run the HelloAuthentication application, you must set up an app on Bluemix. The following procedure shows you how to create a MobileFirst Services Starter application. A Node.js runtime environment is created so that you can provide server-side functions, such as resource URIs and static files. The Cloudant® NoSQL DB, Push Notifications, and Mobile Client Access services are then added to the app.
 
 Create a mobile backend in the Bluemix dashboard:
 
@@ -19,221 +20,85 @@ Create a mobile backend in the Bluemix dashboard:
 
 Configure the Mobile Client Access service:
 
-1. In the Mobile Client Access dashboard, go to the **Authentication** tab to configure your authentication service.  
-2. Choose your authentication type (this sample has been configured for Facebook authentication).
-3. Enter the required configuration settings (APP ID for Facebook authentication).
+1. In the Mobile Client Access dashboard, go to the **Manage** tab.
+2. Click the **Configure** button in the Facebook tile
+3. Enter the required configuration settings (App ID for Facebook authentication).
 
-**Note:** If you have not previously created a Facebook mobile application, follow the instructions on how to [Register and Configure an App](https://developers.facebook.com/docs/apps/register#create-app).
+> **Note:** If you have not previously created a Facebook mobile application, follow the instructions on how to [Register and Configure an App](https://developers.facebook.com/docs/apps/register#create-app).
 
-### Install and configure the Core Plugin
+### Add the native platforms to your app
 
-Follow the README instructions for "Installation" and "Configuration" here to add the Cordova platforms and plugins, and configure your development environment:
+Navigate into your project directory and run the following commands:
 
-<https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-cordova-plugin-core/#3-adding-cordova-plugin>
+```Bash
+cordova platform add ios
+cordova platform add android
+```
 
-***Note: Project will not build until you follow instructions from this step***
+Add the plugin:
 
-For this sample you will need the **bms-core** plugin.
-
-	cordova plugin add bms-core
+```Bash
+cordova plugin add bms-core
+```
 
 ### Configure the front end in the HelloAuthentication sample
 
 1. Navigate to the directory where the project was cloned.
 2. Open <b>index.js</b> located at [your-directory]/www/js/index.js
-3. Replace the \<APPLICATION_ROUTE\> and \<APPLICATION_GUID\> with your Bluemix application ID and route.
+3. Replace the `"APPLICATION_ROUTE"` and set your region.
+4. Make sure your route is using **https**.
 
 JavaScript:
 
-	// Bluemix credentials
-	route: "<APPLICATION_ROUTE>",
-	guid: "<APPLICATION_GUID>",
-
-***Note: Don't forget commas at the end of each line!***
-
-### Configure the Native Platforms
-
-In order to configure Cordova applications for Facebook authentication integration you will need to make changes in native code of the Cordova application, i.e. Java, Objective-C, Swift. Each platform needs to be configured separately. Use vendor provided development environment to make changes in native code, i.e. Android Studio and Xcode.
-
-* [Enabling Facebook authentication in Android apps](https://new-console.ng.bluemix.net/docs/services/mobileaccess/facebook-auth-android.html)
-* [Enabling Facebook authentication in iOS apps](https://new-console.ng.bluemix.net/docs/services/mobileaccess/facebook-auth-ios.html)
-
-
-#### Configuring Android Platform
-
-The steps required to configure Android Platform of Cordova application for Facebook authentication integration are very similar to the steps required for native applications.
-
-The only difference when configuring Cordova applications is that you'll need to initialize the Mobile Client Access Client SDK in your JavaScript code instead of Java code. `FacebookAuthenticationManager` should still be registered in your native code.
-
-#### Configuring iOS Platform
-
-The steps required to configure iOS Platform of Cordova application for Facebook authentication integration are partially similar to the steps required for native applications. The major difference is that currently Cordova CLI does not support Cocoapods dependency manager, therefore you will need to add files required for integrating with Facebook authentication manually.
-
-##### Installing the Mobile Client Access client Swift SDK with CocoaPods
-
-1. If you have no `Podfile` in your iOS project, run `pod init` to create the file.
-
-2. Edit the Podfile and add the following lines:
-
+```Javascript
+// Bluemix credentials
+//
+// Create a MobileFirst Services starter service instance and copy the route e.g. "myhostname.mybluemix.net"
+route: "APPLICATION_ROUTE",
 ```
-use_frameworks!
-pod 'BMSFacebookAuthentication'
-```
-**Note:** If you have this line in your Pod file: `pod 'BMSSecurity'`, you must remove it. The `BMSFacebookAuthentication` pod installs all necessary frameworks.
-
-**Tip:** You can add `use_frameworks!` to your Xcode target instead of having it in the
-Podfile.
-
-3. Save the `Podfile` and run the `pod install` command from the command line. CocoaPods installs the dependencies. The progress and which components were added are displayed. 
-
-    **Important:** You now must open your project by using the `xcworkspace` file that is generated by CocoaPods. Usually the name is `{your-project-name}.xcworkspace`.
-
-4. Run open `{your-project-name}.xcworkspace` from command line to open your iOS project workspace.
-
-##### Configuring your iOS project for Facebook Authentication
-
-1. Find the `info.plist` file, usually located under `Supporting files` folder in your Xcode project.
-
-2. Configure Facebook integration by adding the following properties to your `info.plist` file: 
-
- ![image](images/ios-facebook-infoplist-settings.png)
-
-
-   Update the URL scheme and FacebookAppID properties with your Facebook Application ID.
-
-   You can also update the `info.plist` file by right-clicking the file, selecting **Open as > Source Code** and adding the following XML:
-
-   ```XML
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>fb{your-facebook-application-id}</string>
-			</array>
-		</dict>
-	</array>
-	<key>FacebookAppID</key>
-	<string>{your-facebook-application-id}</string>
-	<key>FacebookDisplayName</key>
-	<string>{your-faceebook-application-name}</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>fbauth</string>
-		<string>fbauth2</string>
-	</array>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-	    <key>NSExceptionDomains</key>
-	    <dict>
-	        <key>facebook.com</key>
-	        <dict>
-	            <key>NSIncludesSubdomains</key>
-	            <true/>                
-	            <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-	            <false/>
-	        </dict>
-	        <key>fbcdn.net</key>
-	        <dict>
-	            <key>NSIncludesSubdomains</key>
-	            <true/>
-	            <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-	            <false/>
-	        </dict>
-	        <key>akamaihd.net</key>
-	        <dict>
-	            <key>NSIncludesSubdomains</key>
-	            <true/>
-	            <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-	            <false/>
-	        </dict>
-	    </dict>
-	</dict>
-```
-
-   Update the `CFBundleURLSchemes` and `FacebookappID` properties with your Facebook Application ID. Update the `FacebookDisplayName` with the name of your Facebook application.
-
-   **Important**: Make sure you are not overriding any existing properties in  the `info.plist` file. If you have overlapping properties, you must merge manually. For more information, see [Configure Xcode Project](https://developers.facebook.com/docs/ios/getting-started/) and [Preparing Your Apps for iOS9](https://developers.facebook.com/docs/ios/ios9).
-
-##### Initializing the Mobile Client Access client Swift SDK
-
-1. Import the Swift umbrella module in your AppDelgate
-
-```Objective-C
-#import {module_name}-Swift.h
-```
-
-**Note:** You can find the `module name` by going to `Build Settings` > `Packaging` > `Product Module Name`
-
-2. Initialize the BMS Client SDK in Javascript
 
 ```Javascript
-BMSClient.initalize(BMSClient.REGION_US_SOUTH);
+// deviceready Event Handler
+//
+// Set the region: BMSClient.REGION_US_SOUTH, BMSClient.REGION_UK, or BMSClient.REGION_SYDNEY
+onDeviceReady: function() {
+		BMSClient.initialize(BMSClient.REGION_US_SOUTH);
+},
 ```
+> **Note:** Don't forget commas at the end of each line!
 
-3. Initialize the Mobile Client Access SDK in Objective-C
-
-```Objective-C
-//XCode 7 (Swift 2.3)
-[CDVBMSClient initMCAAuthorizationManagerManager:@"<tenantId>"];
-//Xcode 8+ (Swift 3+)
-[CDVBMSClient initMCAAuthorizationManagerManagerWithTenantId:@"<tenantId>"];
-
-[[FacebookAuthenticationManager sharedInstance] register];
-
-```
-
-4. Notify the Facebook SDK about the app activation and register the Facebook Authentication Handler by adding the following code to the `application:didFinishLaunchingWithOptions` method in your app delegate. Add this code after you initialize the BMSClient instance and register Facebook as the authentication manager.
-
-```Objective-C
-// Xcode 7 (Swift 2.3)
-    [[FacebookAuthenticationManager sharedInstance] onFinishLaunching:application withOptions:launchOptions];
-// Xcode 8 (Swift 3+)
-    [[FacebookAuthenticationManager sharedInstance] onFinishLaunchingWithApplication:application withOptions:launchOptions];
-    
- return [super application:application didFinishLaunchingWithOptions:launchOptions];
-```
-
-
-5. Copy the `FacebookAuthenticationManager.swift` file from the BMSFacebookAuthentication pod source files to your project directory.
-
-6. Add the following code to your app delegate.
-
-```Objective-C
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-// XCode 7 (Swift 2.3)
-    return [[FacebookAuthenticationManager sharedInstance] onOpenURL:application url:url sourceApplication:sourceApplication annotation:annotation];
-// Xcode 8+ (Swift 3+)
-    return [[FacebookAuthenticationManager sharedInstance] onOpenURLWithApplication:application url:url sourceApplication:sourceApplication annotation:annotation];
-}
-```
-
-### Build/Run the Cordova App
+### Build the Cordova App
 
 Now you can run your application in your mobile emulator or on your device.
 
-1. Build the Cordova app. From your terminal enter the following command:
+Build the Cordova app. From your terminal enter the following command:
 
 		cordova build ios
 		cordova build android
 
-2. Run the sample app. From your terminal enter the following command:
 
-		cordova run ios
-		cordova run android		
+### Make Native Changes
 
-When you run the application, you will see a single view application with a **PING BLUEMIX** button. When you click this button the application tests a connection from the client to a protected resource in the backend Bluemix application. Because this is a protected resource, the authentication process will begin. Login to the authentication service (Facebook in this example).  The application will then display if the connection was successful or unsuccessful. In the unsuccessful state, an error is displayed in the application and the output to the Xcode console.
+In order to configure Cordova applications for Facebook authentication integration you will need to make changes in native code of the Cordova application, i.e. Java, Objective-C, Swift. Each platform needs to be configured separately. Use vendor provided development environment to make changes in native code, i.e. Android Studio and Xcode. Follow the directions in the official Bluemix documentation to set up Facebook Authentication for Cordova.
 
-**Note:** A GET request is made to a protected resource in the Node.js runtime on Bluemix. This code has been provided in the MobileFirst Services Starter boilerplate. The Node.js code provided in this boilerplate must be present in order for the sample to work as expected.
+[Enabling Facebook authentication in Cordova apps](https://new-console.ng.bluemix.net/docs/services/mobileaccess/facebook-auth-cordova.html).
 
-**iOS Note:** This application runs on the latest version of XCode (V7.0). You might need to modify the application for Application Transport Security (ATS) changes made in iOS 9. For more information, see the following blog entry: [Connect Your iOS 9 App to Bluemix](https://developer.ibm.com/bluemix/2015/09/16/connect-your-ios-9-app-to-bluemix/).
+
+### Run the Cordova App
+
+Run the sample app from Android Studio or Xcode after making the native changes.
+
+When you run the application, you will see a single view application with a **Ping Bluemix** button. When you click this button the application tests a connection from the client to a protected resource in the backend Bluemix application. Because this is a protected resource, the authentication process will begin. Login to the authentication service (Facebook in this example).  The application will then display if the connection was successful or unsuccessful. In the unsuccessful state, an error is displayed in the application and the output to the Xcode console.
+
+> **Note:** A GET request is made to a protected resource in the Node.js runtime on Bluemix. This code has been provided in the MobileFirst Services Starter boilerplate. The Node.js code provided in this boilerplate must be present in order for the sample to work as expected.
+
+> **iOS Note:** This application runs on the latest version of XCode (V7.0). You might need to modify the application for Application Transport Security (ATS) changes made in iOS 9. For more information, see the following blog entry: [Connect Your iOS 9 App to Bluemix](https://developer.ibm.com/bluemix/2015/09/16/connect-your-ios-9-app-to-bluemix/).
 
 ### Resolve any problems
 
 Check the following items:
 
-- Verify that you correctly pasted the route and GUID values.
+- Verify that you correctly pasted the route value without the slash at the end.
 - Verify that you used the correct Facebook credentials.
 - Check the Xcode or Android debug log for more information.
 - Check the status of your App in Bluemix.
