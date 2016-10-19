@@ -19,8 +19,9 @@
 
 var app =  {
     // Bluemix credentials
-    route: "<APPLICATION_ROUTE>",
-    guid: "<APPLICATION_GUID>",
+    //
+    // Create a MobileFirst Services starter service instance and copy the route e.g. "myhostname.mybluemix.net"
+    route: "APPLICATION_ROUTE",
 
     // Initialize BMSClient
     initialize: function() {
@@ -37,21 +38,15 @@ var app =  {
 
     // deviceready Event Handler
     //
-    // The scope of 'this' is the event. In order to initialize you must 
-    // specify the region. The following constants are provided:
-    //
-    // BMSClient.REGION_US_SOUTH = ".ng.bluemix.net";
-    // BMSClilent.REGION_UK = ".eu-gb.bluemix.net";
-    // BMSClient.REGION_SYDNEY = ".au-syd.bluemix.net";
-
+    // Set the region: BMSClient.REGION_US_SOUTH, BMSClient.REGION_UK, or BMSClient.REGION_SYDNEY
     onDeviceReady: function() {
-        BMSClient.initialize(BMSClient.REGION_US_SOUTH);
+    		BMSClient.initialize(BMSClient.REGION_US_SOUTH);
     },
 
     // Ping Bluemix
     //
     // Sends a request to a protected resource of the Bluemix backend
-    // The success and failure variables handle the callback response for each case 
+    // The success and failure variables handle the callback response for each case
     // Attempting to access a protected resource automatically kicks off the authentication process
     ping: function() {
         var request = new BMSRequest(app.route + "/protected", BMSRequest.GET);
